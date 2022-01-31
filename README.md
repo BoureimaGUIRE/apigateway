@@ -25,9 +25,9 @@ MISSIONS_SERVICE_BASE_URI=http://localhost:8500/api/missionservice
 MISSIONS_SERVICE_SECRET=d1f32850580ce5366b06620c49fda0ab  
 SALAIRES_SERVICE_BASE_URI=http://localhost:8600/api/salaireservice  
 SALAIRES_SERVICE_SECRET=35c02210d612a4c167fb1230bade848b  
-- Dans le fichier .env de chaque microservice, ajoutez ALLOWED_SECRETS=nMC23YnO6q42Thc1B6ZvX7CSgIQk70PZ. Le secret doit correpondre avec la valeur du secret qui est dans le .env de l'Api Gateway. Ce secret permet de sécuriser la connexion entre la passerelle api et le microservice. Par exemple un appel de la passerelle api vers le microservice employeservice doit porter une en-tête Authorization: nMC23YnO6q42Thc1B6ZvX7CSgIQk70PZ, pour que l'appel puisse être authorisé.
+- Dans le fichier .env de chaque microservice, ajoutez ALLOWED_SECRETS=nMC23YnO6q42Thc1B6ZvX7CSgIQk70PZ. Le secret doit correspondre à la valeur du secret qui est dans le .env de l'Api Gateway. Ce secret permet de sécuriser la connexion entre la passerelle api et le microservice. Par exemple un appel de la passerelle api vers le microservice employeservice doit porter une en-tête Authorization: nMC23YnO6q42Thc1B6ZvX7CSgIQk70PZ, pour que l'appel puisse être authorisé.
 - Pour le test en local, les serveurs de chaque microservice devront être lancés sur des ports différents comme spécifié ci-dessus. Et l'Api gateway pourra être lancé avec la commande (php -S localhost:8000 -t public) sur le port 8000 si celui-ci est libre sinon changez de port.
-- Cette demande "http://localhost:8000/api/employeservice" sur la passerelle Api, renverra 
+- Cette demande "http://localhost:8000/api/employeservice" faite depuis la passerelle Api, inteorrigera le microservice interne http://localhost:8100/api/employeservice et  retournera la liste des employés à la passerelle Api.
 
 # Lumen PHP Framework
 
