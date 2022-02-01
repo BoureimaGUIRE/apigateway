@@ -8,7 +8,7 @@ Il est composé de 07 microservices dont une API Gateway (Passerelle API) :
 - missionserviceapi : microservice 5 chargé de gérer les missions des employés (https://github.com/BoureimaGUIRE/missionserviceapi)
 - salaireserviceapi : microservice 6 chargé de gérer les salaires des employés (https://github.com/BoureimaGUIRE/salaireserviceapi)
 - apigateway : point entrée unique du système, fait la liaison entre tous les autres microservices (https://github.com/BoureimaGUIRE/apigateway)
-# Instructions
+# Instructions test en local
 - git clone https://github.com/BoureimaGUIRE/apigateway
 - Exécutez composer install=> pour installer toutes les dépendances php
 - Renommez le fichier ".env.example" en ".env". Le fichier ".env" est le fichier d'environnement qui traite des configurations de projet telles que les informations d'identification de la base de données, les clés API, le mode de débogage, les clés d'application, etc.
