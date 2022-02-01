@@ -33,8 +33,15 @@ SALAIRES_SERVICE_SECRET=35c02210d612a4c167fb1230bade848b
 - Si l'on veut exécuter ce projet tel qu'il est après composer install, exécution de la migration : php artisan migrate, pour mettre à jour la base de données avec les bonnes tables. Ensuite, semez avec php artisan db:seed pour remplir la base de données avec de fausses données.
 
 # Sécuriser la passerelle API
-Cette passerelle est sécurisée à l'aide de lumen/passport, un package Lumen qui autorise et authentifie les utilisateurs. Avant de commencer à utiliser la passerelle, votre client doit d'abord demander un jeton à http://localhost:8000/oauth/token à l'aide du client_id et client_secret. Si vous n'êtes pas familier avec le processus, reportez-vous à https://github.com/dusterio/lumen-passport
+Cette passerelle est sécurisée à l'aide de lumen/passport, un package Lumen qui autorise et authentifie les utilisateurs. Avant de commencer à utiliser la passerelle, votre client doit d'abord demander un jeton à http://localhost:8000/oauth/token à l'aide du client_id et client_secret. Si vous n'êtes pas familier avec le processus, reportez-vous à https://github.com/dusterio/lumen-passport  
+  
+Pour obtenir le jéton d'accès à la passerelle :
+- Faire un post request to this url : http://localhost:8000/oauth/token
+- Avec ce body request {"grant_type":"password", "client_id":"2", "client_secret":"your-client-secret qui se trouve dans la Table: oauth_clients, "username":"user1@gmail.com", "password":"lire la valeur du hash::make dans le fichier UserTableSeeder.php", "scope":"*"}
 
+# Résoudre certains problèmes 
+- Unable to read key from file file://C:\\Laravel_Project\\apigateway\\storage\\oauth-private.key" : make "php artisan passport:install"
+- 
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
