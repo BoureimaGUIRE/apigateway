@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api', 'middleware' => ['client.credentials']], function () use ($router) {
-    $router->group(['prefix' => 'employe'], function () use ($router) {
+    $router->group(['prefix' => 'employeservice'], function () use ($router) {
         $router->get('/', ['uses' => 'EmployeController@index']);
         $router->get('/contrat', ['uses' => 'ContratController@index']);
         $router->get('/contrat/{id}', ['uses' => 'ContratController@show']);
@@ -28,7 +28,7 @@ $router->group(['prefix' => 'api', 'middleware' => ['client.credentials']], func
         $router->patch('/{id}', ['uses' => 'EmployeController@update']);
         $router->delete('/{id}', ['uses' => 'EmployeController@destroy']);
     });
-    $router->group(['prefix' => 'conge'], function () use ($router) {
+    $router->group(['prefix' => 'congeservice'], function () use ($router) {
         $router->get('/', ['uses' => 'CongeController@index']);
         $router->post('/', ['uses' => 'CongeController@store']);
         $router->get('/{id}', ['uses' => 'CongeController@show']);
