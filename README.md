@@ -8,7 +8,10 @@ Il est composé de 07 microservices dont une API Gateway (Passerelle API) :
 - missionserviceapi : microservice 5 chargé de gérer les missions des employés (https://github.com/BoureimaGUIRE/missionserviceapi)
 - salaireserviceapi : microservice 6 chargé de gérer les salaires des employés (https://github.com/BoureimaGUIRE/salaireserviceapi)
 - apigateway : point entrée unique du système, fait la liaison entre tous les autres microservices (https://github.com/BoureimaGUIRE/apigateway)
+<<<<<<< HEAD
 
+=======
+>>>>>>> ceb5b363a68014d2a25b90c215835aca9459bbde
 # Instructions test en local
 - git clone https://github.com/BoureimaGUIRE/apigateway
 - Exécutez composer install=> pour installer toutes les dépendances php
@@ -35,7 +38,10 @@ SALAIRES_SERVICE_SECRET=35c02210d612a4c167fb1230bade848b
 # Sécuriser la passerelle API
 Cette passerelle est sécurisée à l'aide de lumen/passport, un package Lumen qui autorise et authentifie les utilisateurs. Avant de commencer à utiliser la passerelle, votre client doit d'abord demander un jeton à http://localhost:8000/oauth/token à l'aide du client_id et client_secret. Si vous n'êtes pas familier avec le processus, reportez-vous à https://github.com/dusterio/lumen-passport
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ceb5b363a68014d2a25b90c215835aca9459bbde
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
