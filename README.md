@@ -42,7 +42,7 @@ Pour obtenir le jéton d'accès à la passerelle :
 # Résoudre certains problèmes 
 - Unable to read key from file file://C:\\Laravel_Project\\apigateway\\storage\\oauth-private.key" : make "php artisan passport:install"
 - No application encryption key has been specified : set the app_key in .env. (Vous pouvez obtenir une chaîne de 32 caractères avec cette commande : php -r "echo md5(uniqid()).\"\n\";")
-- 
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
