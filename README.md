@@ -13,7 +13,7 @@ Il est composé de 07 microservices dont une API Gateway (Passerelle API) :
 - Exécutez composer install=> pour installer toutes les dépendances php
 - Renommez le fichier ".env.example" en ".env". Le fichier ".env" est le fichier d'environnement qui traite des configurations de projet telles que les informations d'identification de la base de données, les clés API, le mode de débogage, les clés d'application, etc.
 - Définissez votre clé d'application sur une chaîne aléatoire. En règle générale, cette chaîne doit comporter 32 caractères. Dans le fichier .env, il s'appelle par exemple APP_KEY=akkfjvlakengoemvgkcgelapchyekci. Vous pouvez obtenir une chaîne de 32 caractères avec cette commande : php -r "echo md5(uniqid()).\"\n\";"
-- Ensuite, toujours dans le ".env" vous devez fournir les adresses de tous les microservices accessibles via l'Api Gateway, comme-ci dessous : 
+- Ensuite, toujours dans le ".env" vous devez fournir les adresses de tous les microservices accessibles via l'Api Gateway, comme-ci dessous :   
 EMPLOYES_SERVICE_BASE_URI=http://localhost:8100/api/employeservice  
 EMPLOYES_SERVICE_SECRET=nMC23YnO6q42Thc1B6ZvX7CSgIQk70PZ  
 CONGES_SERVICE_BASE_URI=http://localhost:8200/api/congeservice  
