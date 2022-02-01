@@ -31,13 +31,28 @@ SALAIRES_SERVICE_SECRET=35c02210d612a4c167fb1230bade848b
 - Pour le test en local, les serveurs de chaque microservice devront être lancés sur des ports différents comme spécifié ci-dessus. Et l'Api gateway pourra être lancé avec la commande (php -S localhost:8000 -t public) sur le port 8000 si celui-ci est libre sinon changez de port.
 - Cette demande "http://localhost:8000/api/employeservice" faite depuis la passerelle Api, interrogera le microservice interne http://localhost:8100/api/employeservice et retournera la liste des employés à la passerelle Api.
 - Si l'on veut exécuter ce projet tel qu'il est après composer install, exécution de la migration : php artisan migrate, pour mettre à jour la base de données avec les bonnes tables. Ensuite, semez avec php artisan db:seed pour remplir la base de données avec de fausses données.
+- Tous nos tests ont été réalisés avec POSTMAN.
 
 # Sécuriser la passerelle API
-Cette passerelle est sécurisée à l'aide de lumen/passport, un package Lumen qui autorise et authentifie les utilisateurs. Avant de commencer à utiliser la passerelle, votre client doit d'abord demander un jeton à http://localhost:8000/oauth/token à l'aide du client_id et client_secret. Si vous n'êtes pas familier avec le processus, reportez-vous à https://github.com/dusterio/lumen-passport  
+Cette passerelle est sécurisée à l'aide de lumen/passport, un package Lumen qui autorise et authentifie les utilisateurs. Avant de commencer à utiliser la passerelle, votre client doit d'abord demander un jeton à http://localhost:8000/oauth/token à l'aide du client_id et client_secret. Si vous n'êtes pas familier avec le processus, reportez-vous à https://github.com/dusterio/lumen-passport.  
   
 Pour obtenir le jéton d'accès à la passerelle :
 - Faire un post request to this url : http://localhost:8000/oauth/token
-- Avec ce body request {"grant_type":"password", "client_id":"2", "client_secret":"your-client-secret qui se trouve dans la Table: oauth_clients", "username":"user1@gmail.com", "password":"lire la valeur du hash::make dans le fichier UserTableSeeder.php", "scope":"*"}
+- Le body request de votre post devrait ressembler à cela :  
+{"grant_type":"password",  
+ "client_id":"2",   
+ "client_secret":"your-client-secret qui se trouve dans la Table: oauth_clients",   
+ "username":"user1@gmail.com",   
+ "password":"lire la valeur du hash::make dans le fichier UserTableSeeder.php",   
+ "scope":"*"  
+ }  
+- Si c'est ok vous devrez obtenir un message de ce genre :   
+- {  
+    "token_type": "Bearer",  
+    "expires_in": 31536000,  
+    "access_token":                       "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiOTE5ZWE3YjJlNTFhYWJlNzY1Zjk3YTQ0OTYyNzQxZTQwMzczNGFmNjc0Y2JiNDA3ZmZkNTYwNzg0MzlmNTE5M2MzZDVjZWY3MDg1NmFmMzkiLCJpYXQiOjE2NDM3MjMyOTUsIm5iZiI6MTY0MzcyMzI5NSwiZXhwIjoxNjc1MjU5Mjk1LCJzdWIiOiIxIiwic2NvcGVzIjpbIioiXX0.UXzHfbQ9cy9EydH_0FtDjKkTYyJrSDquIlyiFU1vrW-X2Wdq36vtOYX1N7kWznT7jGx_RkqFA41okpOs5tiOEf0PNZImn3Wjfu-fdrSLplgwh5zyaiwXiJFpKiazJh1LupBBXYyEknh8bqkkksYKdlHnLiEWzWxnhzPYok4_h_70IOBI7pWYqLVqJBQ1oetjXjgHCFPsG21Bt7HZXecZ5MesHzOb5zwrRIeiQzs9SrakXRR3FZvozuq6LUp910xa1mAsOPwgsoLCg14QT5LiJJ76W2nE8nrLbefTQ-OGmItgrUKwDdRDiq_T-dEDCjzoufuHtvQGz0P5Z2Fao5ihr2R4Mv-gCBZB70d4AYrpKG-a2xGhF9jAtT1LAKwLFPd--j8UhxF6FdemjqcPhTCnddHSBFhHQSlpfIZJdyqYoyzjN4wX_MkUGyOMltQompPX27mQOgUpDrvBFfg_ILuSs3YKWaY53HVVc6jRYYdIF8qKeQDV8KEbQJgXpF6PMQBV-SsqvKicyrP4Vk_pOq1hnk1C4PbxkCjqRzy-YLDolRkN-R7UDZXXPWit-9b5ItoOVOiZwIMfKcHqkF9TE2nQX-Yq9r17Gv-7N-ysDGM1IFWr3QXnyva0VRGbB0k5j5MvzwX0mj0U-UC7jk-UCfGau1edn7dnQGa9YSgPV_8i_4I",  
+    "refresh_token":   "def50200232c0721c279bd331b55400aaec997e8662038250e1e52662533a3d521cc517aff66a281d970d5677bf5b60e6c43191b99f5263102728412b20df85bea6eaa4141ac65f516eb452f08e841cd8725a44c09ee4d4fe67ac4d1900dfd9774c3a46bad20e6273c8da6909e0edafcb85498c4c  
+  }  
 
 # Résoudre certains problèmes 
 - Unable to read key from file file://C:\\Laravel_Project\\apigateway\\storage\\oauth-private.key" : make "php artisan passport:install"
